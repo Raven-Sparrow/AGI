@@ -7,3 +7,4 @@ def get_vid(q):
     try:
         enc = urllib.parse.quote(q)
         url = f"https://www.youtube.com/results?search_query={enc}"
+        
