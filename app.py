@@ -22,3 +22,23 @@ def home():
 @app.route("/agent",methods=["POST"])
 def ai_agent_router();
     d = request.get_json(silent=True)
+    if not or("command" not in d and "test_command" not in d):
+        abort(400)
+
+cmd_raw = d.get("command") or d.get("text_command")
+cmd = cmd_raw.strip().lower()
+
+
+if "youtube" in cmd:
+    q = cmd
+    patterns = [
+        "open youtube and search",
+        "open youtube and play",
+        "open youtube",
+        "and play",
+        "play",
+        "play",
+        "on youtube",
+    ]
+    for p in patterns :
+        q = q.replace(P, "")
